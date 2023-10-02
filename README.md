@@ -9,3 +9,11 @@ Saya bertanggung jawab untuk memperkenalkan sedikit penghargaan yang saya dapatk
 Saya juga ahli dalam bidang editing dan gaming semoga ini bisa membantu.<br>
 
 Jika kamu tertarik untuk berkenalan denganku, silakan ikuti akun [github](https://github.com/RazorPG)ku ya.
+
+### Github Statistic
+<p align="left">
+<a href="https://github.com/RazorPG">
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=RazorPG&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=RazorPG&layout=compact&theme=algolia"/>
+</a>
+</p>
