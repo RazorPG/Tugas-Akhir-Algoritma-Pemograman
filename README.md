@@ -13,7 +13,7 @@ Jika kamu tertarik untuk berkenalan denganku, silakan ikuti akun [github](https:
 ### Github Statistic
 <p align="left">
 <a href="https://github.com/RazorPG">
-  <img height="170em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=RazorPG&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
-  <img height="170em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=RazorPG&layout=compact&theme=algolia"/>
+  <img height="160em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=RazorPG&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
+  <img height="160em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=RazorPG&layout=compact&theme=algolia"/>
 </a>
 </p>
