@@ -2,11 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 #include <ctype.h>
 
-char suit[3][100], player[2][100], next = 'T';
-unsigned int start, repeat, seri, nonValid, ronde = 2, nilaiPlayer[3];
-
+char suit[3][100], player[2][100], next[2][100];
+unsigned int start = 2, repeat, seri, nonValid, ronde = 2, nilaiPlayer[3];
+int i;
 // aturan pada permainan
 int aturan()
 {
@@ -30,13 +31,14 @@ int aturan()
             ronde++;
         }
     }
+    sleep(1);
     return 0;
 }
 
 // program yang menjalankan logika dari suit
 void suitPlayer()
 {
-    for (int i = 0; i < 2; i++)
+    for (i = 0; i < 2; i++)
     {
         if (strcmp(suit[i], "1") == 0 || strcmp(suit[i], "batu") == 0)
         {
@@ -64,6 +66,7 @@ void suitPlayer()
             }
         }
     }
+    sleep(1);
 }
 
 // program untuk memberikan kondisi player
@@ -93,19 +96,23 @@ void nilaiAkhir()
 {
     if (nilaiPlayer[0] + nilaiPlayer[1] == 3 || nilaiPlayer[0] == 2 && nilaiPlayer[1] == 0 || nilaiPlayer[0] == 0 && nilaiPlayer[1] == 2)
     {
-        for (int k = 0; k < 2; k++)
+        for (i = 0; i < 2; i++)
         {
-            printf("nilai PLAYER %d adalah %d\n", k + 1, nilaiPlayer[k]);
+            printf("nilai PLAYER %d adalah %d\n", i + 1, nilaiPlayer[i]);
+            sleep(1);
         }
         printf("\n");
 
         printf("%s memenangkan pertandingan⭐⭐⭐\n", (nilaiPlayer[0] > nilaiPlayer[1]) ? "PLAYER 1" : "PLAYER 2");
+        sleep(1);
         ronde = 2, repeat = 0, seri = 0, nonValid = 0, nilaiPlayer[0] = 0, nilaiPlayer[1] = 0;
         while (nonValid == 0)
         {
 
             printf("apakah ingin melanjutkan permainan? (Y/T): ");
+            sleep(1);
             scanf("%c", &next);
+            fflush(stdin);
             next = toupper(next);
             if (next == 'T')
             {
@@ -114,13 +121,11 @@ void nilaiAkhir()
             else if (next == 'Y')
             {
                 nonValid = 1;
-                getchar();
                 printf("\n\n");
             }
             else
             {
                 printf("nilai tidak valid\n");
-                fflush(stdin);
             }
         }
     }
@@ -137,10 +142,10 @@ int main()
     {
         printf("Enter your answer : ");
         scanf("%d", &start);
+        fflush(stdin);
         if (start == 1)
         {
             next = 'Y';
-            fflush(stdin);
         }
         else if (start == 0)
         {
@@ -149,7 +154,6 @@ int main()
         else
         {
             printf("nilai tidak valid\n");
-            fflush(stdin);
         }
     }
 
@@ -165,10 +169,9 @@ int main()
             printf("3. kertas\n");
             printf("Enter your answer : ");
             scanf("%[^\n]%*c", suit[0]);
-            printf("===============================================\n");
+            printf("-----------------------------------------------\n");
             printf("Pemilihan suit secara acak untuk player 2 (bot)\n");
-            printf("tekan enter untuk melanjutkan...");
-            getchar();
+            sleep(1);
             botPlayer();
             repeat++;
             suitPlayer();
@@ -180,7 +183,9 @@ int main()
             else
             {
                 printf("PLAYER 1 : %s\n", player[0]);
+                sleep(1);
                 printf("PLAYER 2 : %s\n", player[1]);
+                sleep(1);
                 aturan();
                 printf("===============================================\n");
                 kondisiPlayer();
