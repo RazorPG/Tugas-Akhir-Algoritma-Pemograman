@@ -4,5 +4,5 @@ Perkenalkan nama saya **Rafid Hilmi**.<br>
 
 Saya seorang **Mahasiswa** di [UNP](https://www.unp.ac.id/).<br>
 
-ini adalah sebuah **Tugas Akhir Algoritma Pemograman**
+ini adalah sebuah **Tugas Akhir Algoritma Pemograman**.<br>
 ##Projek Game Suit
