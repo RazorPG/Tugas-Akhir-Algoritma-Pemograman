@@ -7,13 +7,14 @@
 
 typedef struct
 {
-    int suit;
+    char suit[10];
     int nilaiPlayer[3];
     char player[10];
+    int pilihan;
 } statusPlayer;
 
 statusPlayer p[2];
-
+char start[20];
 char next[30] = "T";
 char fragmentSuit[4][20][100] = {
     {"                                ",
@@ -117,7 +118,7 @@ char fragmentScore[3][7][20] = {
      "##       ",
      "#########"}};
 
-unsigned int border, repeat, seri, nonValid, ronde = 2, start = 2;
+unsigned int border, repeat, seri, nonValid, ronde = 2;
 
 // fungsi the end
 void end()
@@ -176,17 +177,20 @@ void suitPlayer()
 {
     for (border = 0; border < 2; border++)
     {
-        if (p[border].suit == 1)
+        if (strcmp((p[border].suit), "1") == 0)
         {
             strcpy(&(p[border].player[0]), "rock");
+            p[border].pilihan = 1;
         }
-        else if (p[border].suit == 2)
+        else if (strcmp((p[border].suit), "2") == 0)
         {
             strcpy(&(p[border].player[0]), "scissors");
+            p[border].pilihan = 2;
         }
-        else if (p[border].suit == 3)
+        else if (strcmp((p[border].suit), "3") == 0)
         {
             strcpy(&(p[border].player[0]), "paper");
+            p[border].pilihan = 3;
         }
         else
         {
@@ -213,7 +217,7 @@ void emoji()
 
     for (border = 0; border < 18; border++)
     {
-        printf("==                               %s             %s                 %s                          ==\n", fragmentSuit[p[0].suit][border], fragmentSuit[0][border], fragmentSuit[p[1].suit][border]);
+        printf("==                               %s             %s                 %s                          ==\n", fragmentSuit[p[0].pilihan][border], fragmentSuit[0][border], fragmentSuit[p[1].pilihan][border]);
         sleep(0.1);
     }
 }
@@ -235,7 +239,8 @@ void kondisiPlayer(int *a, int *b)
 void botPlayer()
 {
     srand((unsigned int)time(NULL));
-    p[1].suit = rand() % 3 + 1;
+    int randomChoice = rand() % 3 + 1;
+    sprintf(p[1].suit, "%d", randomChoice);
 }
 
 // program yang memproses nilai dari player
@@ -305,14 +310,14 @@ int main()
     while (strcmp(next, "T") == 0)
     {
         printf("Enter your answer : ");
-        scanf("%d", &start);
+        scanf("%s", &start);
         fflush(stdin);
-        if (start == 9)
+        if (strcmp(start, "9") == 0)
         {
             strcpy(next, "Y");
         }
 
-        else if (start == 0)
+        else if (strcmp(start, "0") == 0)
         {
             end();
             exit(0);
@@ -336,7 +341,7 @@ int main()
             printf("== ---->Press [3] to choise a paper                                                                                                                                                      ==\n");
             printf("===========================================================================================================================================================================================\n");
             printf("Enter your answer : ");
-            scanf("%d", &(p[0].suit));
+            scanf("%s", &(p[0].suit));
             fflush(stdin);
             printf("===========================================================================================================================================================================================\n");
             printf("==                                                                         RANDOM SELECTION OF SUIT FOR PLAYER 2 [BOT]                                                                   ==\n");
